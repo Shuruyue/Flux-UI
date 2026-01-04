@@ -7,9 +7,9 @@ interface Props {
   type: 'notes' | 'pages' | 'posts'
   id: string
 }
+// [FIX] Removed debug console.log - security: avoid exposing auth state in browser console
 export const GoToAdminEditingButton: Component<Props> = (props) => {
   const isLogin = useIsLogged()
-  console.log(isLogin)
   const resolveAdminUrl = useResolveAdminUrl()
   const { id, type, className } = props
   if (!isLogin) return null
